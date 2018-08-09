@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -8,7 +9,8 @@ const extractPlugin = new ExtractTextPlugin({
 module.exports = {
     entry: "./index.js",
     output: {
-        filename: 'bundle.js',
+        // CHANGED LINE        
+        filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'public')
     },
     context: path.resolve(__dirname, 'src'),
@@ -20,7 +22,7 @@ module.exports = {
         compress: true
     },
     plugins: [
-     new CleanWebpackPlugin(['public']),
+        new CleanWebpackPlugin(['public']),
         new HtmlWebpackPlugin({
             template: 'index.html'
         }),
@@ -38,14 +40,19 @@ module.exports = {
                 }
             }]
         }, {
-         test: /\.scss$/,
-         use: extractPlugin.extract({
-         use: [            
-            "css-loader", // translates CSS into CommonJS
-            "sass-loader" // compiles Sass to CSS, using Node Sass by default
-        ],
-        fallback: 'style-loader' 
-        })
-      }]
+            test: /\.scss$/,
+            use: extractPlugin.extract({
+             use: ["css-loader", "sass-loader", "postcss-loader"],
+             fallback: 'style-loader'
+            })
+        }, {
+         test: /\.js$/,
+         use: {
+          loader: 'babel-loader',
+          options: {
+           presets: ['es2015', 'react']
+          }
+         }
+        }]
     }
 }
