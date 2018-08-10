@@ -9,18 +9,32 @@ const mapStateToProps = (state, ownProps) => {
     }
 }
 
-const Home = props => {
+class Home extends Component {
     
-    const call = () =>{
-        props.dispatch(textChange())
+    constructor(props,context){
+        super(props,context);
+     
+        this.someFunc = ()=>{
+          //here function code
+        };
+     }
+    componentWillMount() {
+		// this.props.onCreate();
+	}
+    
+    callFunction = () =>{
+        this.props.dispatch(textChange())
     }
 
-    return (<div>Hello Wrapper<TheComponent label={props.buttonText} onClick={() => call()}/></div>)
+    render() {
+    return (<div>Hello Wrapper<TheComponent label={this.props.buttonText} onClick={() => this.callFunction()}/></div>)
+    }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
 
 }
+
 const App = connect(
     mapStateToProps
 )(Home)
