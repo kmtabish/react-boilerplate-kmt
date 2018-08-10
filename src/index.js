@@ -1,18 +1,28 @@
 //console.log("Hello Clarifai")
-import test from './test';
-import img from './assets/1.png';
-import styles from './styles/main.scss';
 import React from "react";
 import ReactDOM from "react-dom";
 import "babel-polyfill";
-import App from './components/App';
-console.log(img);
-console.log(test);
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import App from './containers/App';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import { reducers } from './reducers/index';
+import middleware from './middleware';
+import { createLogger } from 'redux-logger';
+
+let environment = (process.env.NODE_ENV || 'development').toString().trim().toLowerCase();
+if (environment != 'production') {
+    middleware.push(createLogger());
+}
+
+let store = createStore(reducers, applyMiddleware(...middleware));
+
 
 ReactDOM.render(
-  <div>
-    Hello world!
+  <Provider store={store}>
+   <MuiThemeProvider>
     <App />
-  </div>,
+  </MuiThemeProvider>
+  </Provider>,
   document.getElementById('app')
 );
