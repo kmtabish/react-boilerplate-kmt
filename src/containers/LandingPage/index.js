@@ -1,13 +1,9 @@
 import { connect } from 'react-redux'
 import React, {Component} from 'react'
-import TheComponent from '../components/App';
-import {Basic} from '../constants/action';
+import TheComponent from '../../components/App';
+import {Basic} from '../../constants/action';
 import {textChange} from './action'
-const mapStateToProps = (state, ownProps) => {
-    return {
-     buttonText: state.text
-    }
-}
+
 
 class Home extends Component {
     
@@ -19,7 +15,8 @@ class Home extends Component {
         };
      }
     componentWillMount() {
-		// this.props.onCreate();
+        // this.props.onCreate();
+        console.log("OOOOOOOOOOOOOO", this.props)
 	}
     
     callFunction = () =>{
@@ -35,6 +32,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 }
 
+const mapStateToProps = (state, ownProps) => {
+    return {
+     buttonText: state.text
+    }
+}
 const App = connect(
     mapStateToProps
 )(Home)

@@ -1,5 +1,11 @@
 import { combineReducers } from "redux";
 import basicReducer from './basicReducer';
-export const reducers = combineReducers({
+import { routerReducer } from 'react-router-redux';
+// export const reducers = combineReducers({
+//   text: basicReducer,
+//   routing: routerReducer
+// });
+
+export default {
   text: basicReducer
-});
+};
