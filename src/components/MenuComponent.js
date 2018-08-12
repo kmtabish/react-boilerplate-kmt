@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 const Menu = props => <AppBar
-    title="Our project"
+    title="Clarifai"
     onTitleClick={props.goHome}
     iconElementRight={<FlatButton label="Show stuff" />}
     onRightIconButtonClick={props.onClick}

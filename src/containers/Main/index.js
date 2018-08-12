@@ -1,6 +1,27 @@
-import React from 'react';
-const  MainScreen = props =>{
-   return (<div>Screen 2</div>)
+import React, {Component} from 'react'
+import { connect } from 'react-redux'
+import {testAction} from './action'
+
+class MainScreen extends Component {
+    constructor(props){
+        super(props);
+     }
+    componentWillMount() {
+        this.props.dispatch(testAction())
+    }
+    render() {
+        return (<div>Screen [Route Main]</div>)
+    }
 }
 
-export default MainScreen
+const mapStateToProps = (state) => {
+    return {
+     buttonText: state.text
+    }
+}
+
+const App = connect(
+    mapStateToProps
+)(MainScreen)
+
+export default App

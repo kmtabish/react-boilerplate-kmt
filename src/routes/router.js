@@ -1,6 +1,5 @@
 import React from "react";
-import { history } from "../store.js";
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import { withRouter } from 'react-router-dom';
 
 import App from "../containers/LandingPage";
@@ -15,9 +14,9 @@ class RouteComp extends React.Component {
       <div >
           <div>
             <Switch>
-              <Route exact path='/home' component={Main} />
+              <Route exact path='/main' component={Main} />
               <Route exact path='/' component={App} /> 
-              <Route render={() => <div history={ this.props.history }> heelo Not found </div>}/>
+              <Route render={() => <div history={ this.props.history }> Route Not Found </div>}/>
             </Switch>
           </div>          
       </div>)
