@@ -19,3 +19,20 @@ export const testAction = (cb) => {
         })
     }
   }; 
+
+  export const testAction2 = (cb) => {
+    return (dispatch) => {
+      const topupApiConfig = findApiConfigByName("test");
+      const _data = {
+        "name": "morpheus",
+        "job": "leader"
+      }
+      httpRequest("https://reqres.in/api/users", null, { data: _data })
+        .then((data) => {
+        console.log("Success Response data", data)
+        })
+        .catch(error => {
+        console.log("Error Response data", error)
+        })
+    }
+  }; 

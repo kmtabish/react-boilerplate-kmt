@@ -9,7 +9,6 @@ const extractPlugin = new ExtractTextPlugin({
 module.exports = {
     entry: "./index.js",
     output: {
-        // CHANGED LINE        
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'public')
     },
@@ -18,7 +17,7 @@ module.exports = {
         contentBase: path.resolve(__dirname, 'public/assets'),
         stats: 'errors-only',
         open: true,
-        port: 8080,
+        port: 1234,
         compress: true
     },
     plugins: [

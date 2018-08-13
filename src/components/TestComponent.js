@@ -14,7 +14,7 @@ const App = props => {
 }
 
 App.propTypes = {
-    buttonText: PropTypes.string.isRequired,
+    label: PropTypes.string.isRequired,
     onClick: PropTypes.func.isRequired
 }
 
