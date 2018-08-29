@@ -17,7 +17,7 @@ module.exports = {
         contentBase: path.resolve(__dirname, 'public/assets'),
         stats: 'errors-only',
         open: true,
-        port: 1234,
+        port: 4321,
         compress: true
     },
     plugins: [
@@ -45,7 +45,7 @@ module.exports = {
              fallback: 'style-loader'
             })
         }, {
-         test: /\.js$/,
+         test: /\.(js|jsx)$/,
          use: {
           loader: 'babel-loader',
           options: {

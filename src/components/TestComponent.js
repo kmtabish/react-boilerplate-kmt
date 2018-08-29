@@ -5,7 +5,7 @@ import MenuComponent from './MenuComponent';
 
 const App = props => {
     return (
-        <div >
+        <div className={props.sty}>
             Test Home Screen [/ route]
             <RaisedButton label={props.label} onClick={props.onClick} />
             <MenuComponent />
