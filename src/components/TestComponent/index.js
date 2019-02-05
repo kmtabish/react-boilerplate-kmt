@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 import PropTypes from 'prop-types';
-import MenuComponent from './MenuComponent';
+import MenuComponent from '../MenuComponent';
 
 const App = props => {
     return (
@@ -9,7 +9,7 @@ const App = props => {
             Test Home Screen [/ route]
             <RaisedButton label={props.label} onClick={props.onClick} />
             <MenuComponent />
-         </div>
+        </div>
      )
 }
 
@@ -21,5 +21,5 @@ App.propTypes = {
 App.defaultProps = {
     label: 'defaultText',
     onClick: () => console.log('default click action')
- }
+}
 export default App;

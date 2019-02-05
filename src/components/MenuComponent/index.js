@@ -4,11 +4,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 const Menu = props => <AppBar
-    title="Clarifai"
+    title="App Title"
     onTitleClick={props.goHome}
-    iconElementRight={<FlatButton label="Show stuff" />}
+    iconElementRight={<FlatButton label="Change Route"  />}
     onRightIconButtonClick={props.onClick}
 />
+
 Menu.propTypes = {
  goHome: PropTypes.func.isRequired
 }

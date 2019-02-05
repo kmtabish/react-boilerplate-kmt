@@ -1,15 +1,14 @@
 import { connect } from 'react-redux'
 import React, {Component} from 'react'
-import TestComponent from '../../components/TestComponent';
+import TestComponent from '../../components/MenuComponent';
 import {Basic} from '../../constants/action';
 import {textChange} from './action'
 
 
-class Home extends Component {
-    
+class Home extends Component {    
     constructor(props,context){
         super(props,context);
-        }
+    }
     componentWillMount() {
         //Initial call will go here
     }
@@ -21,11 +20,9 @@ class Home extends Component {
     render() {
         return (
             <div>
-                <TestComponent label={this.props.buttonText} 
-                              onClick={() => this.onButtonClick()}
-                              />
-                            </div>
-               )
+                <TestComponent label={this.props.buttonText} onClick={() => this.onButtonClick()}/>
+            </div>
+        )
     }
 }
 
@@ -35,10 +32,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-     buttonText: state.text
+        buttonText: state.text
     }
 }
-const App = connect(
-    mapStateToProps
-)(Home)
+const App = connect(mapStateToProps)(Home)
 export default App;
