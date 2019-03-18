@@ -6,7 +6,7 @@ export const ApiNames = Object.freeze({
 export const getPreset = () => {
     let _url = URLConfig
     return _url;
-  }
+}
 export const ApiConfig = Object.freeze([
     {
       name: ApiNames.Login, // namespace for apis
